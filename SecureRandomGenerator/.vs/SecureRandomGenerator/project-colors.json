@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9b6cc852-86ed-461a-a6ff-7da158d89828": {
+      "ProjectGuid": "9b6cc852-86ed-461a-a6ff-7da158d89828",
+      "DisplayName": "SecureRandomGenerator",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,12 @@
+{
+  "AmgenProductFamily": [
+    {
+      "ProductFamilyName": "Family001",
+      "StudyNumber": "Study123"
+    },
+    {
+      "ProductFamilyName": "Family001",     
+      "StudyNumber": "Study234"
+    }
+  ]
+}

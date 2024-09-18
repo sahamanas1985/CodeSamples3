@@ -1,0 +1,56 @@
+﻿
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<style>
+    .intro{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12pt;
+    }
+</style>
+
+<div>
+    <span class="intro">
+
+        Study Creation API is Running.
+        <br /><br />
+        Hit this endpoint URL when the queue is updated:
+        <br /><br />
+
+        @{
+            string ApiUrl = Request.Url.AbsoluteUri + "api/StudyCreation/QueueUpdated";
+            <a href="@ApiUrl">@ApiUrl</a>
+        }
+
+    </span>
+
+    <br /><br />
+    <button type="button" onclick="DownloadFile('pdf')">Download PDF</button>
+    <br /><br />
+    <button type="button" onclick="DownloadFile('excel')">Download Excel</button>
+
+    <script>
+        function DownloadFile(filetype) {
+            
+            $.ajax({
+                type: 'post',
+                url: 'https://localhost:44312/api/StudyCreation/DownloadFile?filetype=' + filetype,
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (result) {
+                    var a = document.createElement('a');
+                    var url = window.URL.createObjectURL(result);
+                    a.href = url;
+                    if (filetype == "pdf")
+                        a.download = 'download.pdf';
+                    else if (filetype == "excel")
+                        a.download = 'download.xlsx';
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                }
+            });
+        }
+    </script>
+
+</div>

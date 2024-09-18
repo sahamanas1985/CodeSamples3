@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6b609b3d-90da-46d7-841c-f12473961b2a": {
+      "ProjectGuid": "6b609b3d-90da-46d7-841c-f12473961b2a",
+      "DisplayName": "LogAppend",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,146 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style>
+    .x-spreadsheet-toolbar {
+        width: 1100px !important;
+    }
+
+    .x-spreadsheet-sheet {
+        width: 1100px !important;
+    }
+    
+</style>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf_viewer.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="~/js/addpdfviewer.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/excel-viewer@1.0.0/dist/excel/xspreadsheet.css">
+<script src="https://unpkg.com/excel-viewer@1.0.0/dist/excel/xspreadsheet.js"></script>
+<script src="https://unpkg.com/excel-viewer@1.0.0/dist/excel/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/excel-viewer@1.0.0/dist/excel-viewer.js"></script>
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Document Viewer</h1>
+    <p>Click these buttons to launch the document viewer</p>
+</div>
+<center>
+    <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#wordModal" onclick="ShowWord()">Word Document</button>
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#pdfModal" onclick="ShowPdf()">PDF Document</button>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#excelModal" onclick="ShowExcel()">Excel Document</button>
+</center>
+
+
+
+
+<!-- Word Viewer Modal -->
+<div class="modal fade" id="wordModal" tabindex="-1" aria-labelledby="wordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Word Viewer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <pre id="word_container" style="border:1px solid lightgray; height:550px; overflow-y: scroll"></pre>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- PDF Viewer Modal -->
+<div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">PDF Viewer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="pdf_container" style="border:1px solid lightgray; height:550px; overflow-y: scroll"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Excel Viewer Modal -->
+<div class="modal fade" id="excelModal" tabindex="-1" aria-labelledby="excelModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Excel Viewer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <excel_container id="excel_container" style="border:1px solid lightgray; height:550px; width:500px; overflow: scroll"></excel_container>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<form method="post"></form>
+
+<script type="text/javascript">
+
+
+    function ShowPdf()
+    {
+        LoadPdfFromUrl('@Url.Content("~/docs/samplepdf.pdf")');
+    }
+
+    function ShowWord()
+    {
+        // Ajax call to get the HTML from word document.
+
+        var payload = { 'docid': 1 };
+
+         $.ajax({
+            type: "POST",
+            url: "/Index?handler=HtmlFromWord",
+            data: payload,
+            headers: {
+                RequestVerificationToken:
+                    $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            success: function (result) {
+                var htmlString = JSON.stringify(result);
+                // use this html string to render document.
+                console.log(result);
+
+                $('#word_container').html(result);
+
+            },
+            error: function (result) {
+                alert("error: " + JSON.stringify(result));
+            }
+         });
+
+    }
+
+    function ShowExcel()
+    {
+        new ExcelViewer("#excel_container", "https://localhost:44335/docs/dummyexcel.xlsx", 
+        {
+        theme: "light",
+        lang: "en"
+        });
+    }
+
+
+
+</script>
+
+

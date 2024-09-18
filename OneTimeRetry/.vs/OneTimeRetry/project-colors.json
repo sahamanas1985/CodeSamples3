@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4a91a2b3-876a-460c-a14c-9c187b9cb632": {
+      "ProjectGuid": "4a91a2b3-876a-460c-a14c-9c187b9cb632",
+      "DisplayName": "OneTimeRetry",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

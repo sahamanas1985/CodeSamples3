@@ -1,0 +1,119 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h5>Download Excel Test</h5>
+    <br/><br/>
+    <form method="post">
+        <button type="submit" class="btn btn-info">Export to Excel (Post)</button>
+    </form>
+
+    <br/>
+     <button type="button" onclick="PostViaAjax()" class="btn btn-info">Export to Excel (Ajax)</button>
+
+    <br/><br/>
+     <button type="button" onclick="DownloadFileAjax('pdf')" class="btn btn-info">Export Pre generated PDF (Ajax)</button>
+    
+     <br/><br/>
+     <button type="button" onclick="DownloadFileAjax('excel')" class="btn btn-info">Export Pre generated Excel (Ajax)</button>
+
+     <br/><br/>
+     <button type="button" onclick="CallHttpRespMsg('pdf')" class="btn btn-info">Test Http Response Msg</button>
+
+
+</div>
+
+<script>
+    function PostViaAjax()
+    {
+        var number1 = $("#t1").val();
+        var number2 = $("#t2").val();
+
+        var payload = { 'somedata': 'dummy' };
+                        
+         $.ajax({
+            type: "POST",
+            url: "/Index?handler=AjaxExport",                                   
+            data: payload,           
+            xhrFields: {
+                responseType: 'blob'
+            },
+            headers: {
+                RequestVerificationToken:
+                    $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            success: function (result) {               
+                var a = document.createElement('a');
+                var url = window.URL.createObjectURL(result);
+                a.href = url;
+                a.download = 'download.xlsx';
+                a.click();
+                window.URL.revokeObjectURL(url);
+            },
+            error: function (result) {
+                alert("error: " + JSON.stringify(result));
+            }
+         });
+    }
+
+
+    function DownloadFileAjax(filetype)
+    {
+        var payload = { 'filetype': filetype };
+                        
+         $.ajax({
+            type: "POST",
+            url: "/Index?handler=DownloadPreGeneratedFile",                                   
+            data: payload,           
+            xhrFields: {
+                responseType: 'blob'
+            },
+            headers: {
+                RequestVerificationToken:
+                    $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            success: function (result) {  
+                                
+                var a = document.createElement('a');
+                var url = window.URL.createObjectURL(result);
+                a.href = url;
+                if(filetype == "pdf")
+                    a.download = 'download.pdf';
+                else if(filetype == "excel")
+                    a.download = 'download.xlsx';
+                a.click();
+                window.URL.revokeObjectURL(url);
+            },
+            error: function (result) {
+                alert("error: " + JSON.stringify(result));
+            }
+         });
+    }
+
+    function CallHttpRespMsg(filetype)
+    {
+        var payload = { 'filetype': filetype };
+                        
+         $.ajax({
+            type: "POST",
+            url: "/api/Download/DownloadFile",                                   
+            data: payload, 
+            headers: {
+                RequestVerificationToken:
+                    $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            success: function (result) {  
+                                
+                alert("success: " + JSON.stringify(result));
+            },
+            error: function (result) {
+                alert("error: " + JSON.stringify(result));
+            }
+         });
+    }
+
+
+</script>

@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style>
+    .oktalogo
+    {
+        height:40%; 
+        width: 20%; 
+        margin-top: -4px;        
+    }
+
+    .signinbutton
+    {
+        height:50px; 
+        width: 210px;  
+        padding-top: 12px;
+    }
+</style>
+
+<div class="text-center">
+    <h4>Okta Authentication demo in Dot Net 6</h4><br/>
+    <h6>Try to access the "Privacy" link without signing in.</h6> 
+    
+    <br />
+
+    <p>Please click this button to Signup / Login to IDM Application</p>
+
+    <br/>
+    
+     <a class="btn btn-info signinbutton" asp-page="./Privacy">
+         Sign in with <img src="~/Okta_logo.svg" class="oktalogo" />
+     </a>
+
+</div>

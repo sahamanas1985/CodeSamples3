@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "82fd4f4b-6110-4593-bb30-ac6e0b4f9d0b": {
+      "ProjectGuid": "82fd4f4b-6110-4593-bb30-ac6e0b4f9d0b",
+      "DisplayName": "FileUploadService",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

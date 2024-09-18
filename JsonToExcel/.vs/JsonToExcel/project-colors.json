@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6317e501-4ade-49e3-9678-184a626b989a": {
+      "ProjectGuid": "6317e501-4ade-49e3-9678-184a626b989a",
+      "DisplayName": "JsonToExcel",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

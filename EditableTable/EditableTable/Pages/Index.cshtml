@@ -1,0 +1,122 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="~/js/bootstable.js" crossorigin="anonymous"></script>
+
+@*<script src="~/js/mindmup-editabletable.js"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+
+
+<div class="text-center">
+    <h4>Inline Editable table demo</h4>
+</div>
+
+<a href="~/subfolder/index.html">Navigate to wwwroot mytest.html</a>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Upload an excel table</label>
+      <input class="form-control" style="width: 500px" type="file" id="formFile" name="formFile">
+    </div>
+
+    <button type="submit" class="btn btn-info">Upload Excel</button>
+</form>
+
+
+<div>
+    <table id="tblData" class="table">
+    
+
+    @if (Model.MyDataTable != null)
+    {   
+        <thead>
+        <tr id="Parameter_name">
+        @{
+            foreach (System.Data.DataColumn col in Model.MyDataTable.Columns)
+            {
+                <th>@col.ColumnName</th>
+            }
+        }        
+        </tr>
+        </thead>
+        <tbody>
+        @{
+            foreach (System.Data.DataRow dr in Model.MyDataTable.Rows)
+            {
+                <tr>                
+                   @foreach (System.Data.DataColumn colm in Model.MyDataTable.Columns)
+                    {
+                        <td class="editMe">
+                            @dr[colm.ColumnName].ToString()
+                        </td>
+                    }                
+                </tr>
+            }
+        }           
+        
+        </tbody>
+    }
+</table>
+
+<span>
+
+  <button id="but_add" class="btn btn-success">Add New Row</button>
+
+</span>
+
+
+</div>
+
+<br/>
+<button type="button" class="btn btn-warning" onClick="EditTable()">Edit Table</button>
+
+<button type="button" class="btn btn-warning" onClick="SaveTable()">Save Changes</button>
+
+<script>
+    function EditTable()
+    {
+        alert("Table is now editable.");        
+        //$('#tblData').editableTableWidget();
+        //$('#tblData').editableTableWidget({editor: $('<textarea>')});
+
+        $('#tblData').SetEditable({ 
+          $addButton: $('#but_add')
+        });
+    }
+
+    function SaveTable()
+    {
+        var $table = $("#tblData");
+        rows = [],
+        header = [];
+
+        $table.find("thead th").each(function () {
+            header.push($(this).html());
+        });
+
+        $table.find("tbody tr").each(function () {
+            var row = {};
+    
+            $(this).find("td").each(function (i) {
+                var key = header[i],
+                    value = $(this).html();
+        
+                row[key] = value;
+            });
+    
+            rows.push(row);
+        });    
+    
+        alert(JSON.stringify(rows));
+    }
+
+</script>
+
+
+
+

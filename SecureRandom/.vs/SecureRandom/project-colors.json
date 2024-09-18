@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "80745371-24fd-4e1a-a9c9-f9180e312ce7": {
+      "ProjectGuid": "80745371-24fd-4e1a-a9c9-f9180e312ce7",
+      "DisplayName": "SecureRandom",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

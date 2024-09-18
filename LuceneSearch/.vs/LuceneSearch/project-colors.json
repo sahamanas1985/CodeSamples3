@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8dbc5d8a-11c7-49cc-bc87-a7c30e636700": {
+      "ProjectGuid": "8dbc5d8a-11c7-49cc-bc87-a7c30e636700",
+      "DisplayName": "LuceneSearch",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

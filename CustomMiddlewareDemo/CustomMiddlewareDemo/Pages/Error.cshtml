@@ -1,0 +1,15 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Oops! that's an Error.</h1>
+<h2 class="text-danger">@Model.ErrorMessage</h2>
+
+
+<br />
+<h3>Stack Trace: </h3>
+<br/>
+<span>@Model.StackTrace</span>
+

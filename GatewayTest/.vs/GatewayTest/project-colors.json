@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e5c9cd0f-7d24-4c81-8a3f-eac86a7a4bd1": {
+      "ProjectGuid": "e5c9cd0f-7d24-4c81-8a3f-eac86a7a4bd1",
+      "DisplayName": "ClientApp",
+      "ColorIndex": 0
+    },
+    "c6f23771-ac28-4eea-b308-6ce9ca7efb85": {
+      "ProjectGuid": "c6f23771-ac28-4eea-b308-6ce9ca7efb85",
+      "DisplayName": "GatewayTest",
+      "ColorIndex": 1
+    },
+    "906a1de9-da48-4923-94e5-f8b0c8c07b25": {
+      "ProjectGuid": "906a1de9-da48-4923-94e5-f8b0c8c07b25",
+      "DisplayName": "ApiGateway",
+      "ColorIndex": 2
+    },
+    "6a56c12e-0051-43c6-979e-a5e9074c1e92": {
+      "ProjectGuid": "6a56c12e-0051-43c6-979e-a5e9074c1e92",
+      "DisplayName": "OcelotGateway",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}

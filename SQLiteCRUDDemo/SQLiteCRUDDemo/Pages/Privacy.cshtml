@@ -1,0 +1,27 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>Create new student</h1>
+
+<form method="post">
+
+<div class="mb-3">
+  <label class="form-label">Student Name</label>
+  <input type="text" class="form-control" id="stuName" asp-for="@Model.studentName">
+</div>
+<div class="mb-3">
+  <label class="form-label">Student Grade</label>
+  <input type="text" class="form-control" id="stuName" asp-for="@Model.studentGrade">
+</div>
+<div class="mb-3">
+  <label class="form-label">Student Subject</label>
+  <input type="text" class="form-control" id="stuName" asp-for="@Model.studentSubject">
+</div>
+
+<button type="submit" class="btn btn-info">Create Student</button>
+
+
+</form>
+

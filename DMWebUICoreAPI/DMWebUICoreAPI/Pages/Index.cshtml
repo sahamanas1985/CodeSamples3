@@ -1,0 +1,83 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h4>API Specification - SendStudyProductDetails</h4><br/>
+
+<h5 style="color: indianred">POST Method Endpoint</h5>
+
+<span style="color: royalblue"> https://localhost:44324/api/ArgusApi/SendStudyProductDetails </span> <br/><br/>
+
+<h5 style="color: indianred">Basic Authorization Header</h5>
+
+<span style="color: royalblue"> <b>User Name:</b> AmgenArgusUser </span> <br/>
+<span style="color: royalblue"> <b>Password:</b> ETo7V@gWBx </span> <br/><br/>
+
+<h5 style="color: indianred">Sample Input JSON</h5>
+<pre>
+{
+  "AmgenProductFamily": [
+    {
+      "ProductFamilyName": "Family001",      
+      "StudyNumber": "Study123"
+    },
+    {
+      "ProductFamilyName": "Family001",      
+      "StudyNumber": "Study234"
+    }
+  ]
+}
+</pre>
+
+<h5 style="color: indianred">Sample Output JSON</h5>
+<pre>
+{
+    "success": true,
+    "message": "Operation successful",
+    "processedAt": "2023-10-12T11:12:28.7153789+05:30",
+    "result": null
+}
+</pre>
+
+
+<br/><br/>
+<h4>API Specification - ReceiveNonAmgenDSDetails</h4><br/>
+
+<h5 style="color: indianred">GET Method Endpoint</h5>
+
+<span style="color: royalblue"> https://localhost:44324/api/ArgusApi/ReceiveNonAmgenDSDetails </span> <br/><br/>
+
+<h5 style="color: indianred">Basic Authorization Header</h5>
+
+<span style="color: royalblue"> <b>User Name:</b> AmgenArgusUser </span> <br/>
+<span style="color: royalblue"> <b>Password:</b> ETo7V@gWBx </span> <br/><br/>
+
+
+<h5 style="color: indianred">Sample Output JSON</h5>
+<pre>
+{
+    "success": true,
+    "message": "Data Retrieved Successfully.",
+    "processedAt": "2023-11-23T16:54:42.3306542+05:30",
+    "result": {
+        "amgenProductFamily": [
+            {
+                "productFamilyName": "Family001",
+                "productName": "Product001",
+                "studyNumber": "Study111",
+                "activeDatasheetName": "RSIName1",
+                "activationDate": "2023-11-23T16:54:42.3304637+05:30"
+            },
+            {
+                "productFamilyName": "Family002",
+                "productName": "Product002",
+                "studyNumber": "Study222",
+                "activeDatasheetName": "RSIName2",
+                "activationDate": "2023-11-23T16:54:42.3306513+05:30"
+            }
+        ]
+    }
+}
+</pre>

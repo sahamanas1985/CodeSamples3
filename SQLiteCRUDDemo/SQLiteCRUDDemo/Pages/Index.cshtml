@@ -1,0 +1,77 @@
+﻿@page
+@using SQLiteCRUDDemo.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<table class="table">
+    <thead class="table table-primary">
+        <td>ID</td>
+        <td>Name</td>
+        <td>Grade</td>
+        <td>Subject</td>
+        <td>Actions</td>
+    </thead>
+    <tbody>
+        @{            
+            foreach (Student stu in Model.Students)
+            {
+                <tr>
+                 <td>@stu.Id</td>
+                 <td>@stu.StudentName</td>
+                 <td>@stu.StudentGrade</td>
+                 <td>@stu.StudentSubject</td>
+
+                 <td>
+                    <btn class="btn btn-warning" onclick="editStudent(@stu.Id)">Edit</btn>
+                    <btn class="btn btn-danger" onclick="deleteStudent(@stu.Id)">Delete</btn>
+                 </td> 
+                 
+                </tr>              
+
+            }            
+        }
+    </tbody>
+</table>
+
+<form method="post"></form>
+
+<script>
+    function editStudent(id)
+    {   
+        window.location.href = 'Edit?id=' + id;
+    }
+
+    function deleteStudent(id)
+    {
+        let text = "Are you sure to delete this record?";
+        
+        if (confirm(text) == true) {
+            // call ajax to delete record.
+
+            var payload = { 'studentid': id };
+             $.ajax({
+                type: "POST",
+                url: "/Index?handler=DeleteStudent",                                   
+                data: payload,
+                headers: {
+                    RequestVerificationToken:
+                        $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (result) {               
+                    //alert("Record Deleted Successfully.");                    
+                },
+                error: function (result) {
+                    alert("error: " + JSON.stringify(result));
+                }
+             });
+
+
+        } 
+    }
+
+
+    
+</script>
+

@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-6">Welcome</h1>
+    <button type="button" onclick="DownloadPDF()" class="btn btn-info">Download PDF</button>
+    <form method ="post"></form>
+</div>
+
+
+<script>
+
+    function DownloadPDF()
+    {                
+         $.ajax({
+            type: "POST",
+            url: "/index?handler=DownloadPdf",
+            xhrFields: {
+                responseType: 'blob'
+            },
+            headers: {
+                RequestVerificationToken:
+                    $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            success: function (result) {
+               
+                var a = document.createElement('a');
+                var url = window.URL.createObjectURL(result);
+                a.href = url;
+                a.download = 'download.pdf';
+                a.click();
+                window.URL.revokeObjectURL(url);
+            },
+            error: function (result) {
+                alert("error: " + JSON.stringify(result));
+            }
+         });
+
+    }
+</script>

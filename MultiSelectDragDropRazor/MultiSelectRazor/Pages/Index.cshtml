@@ -1,0 +1,224 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+
+<style>
+
+    .dmmultiselect
+    {
+        border: 1px solid #1178af;
+        border-radius: 8px;
+        
+    }
+    .select-label
+    {
+        border-radius: 8px !important;
+        border-color: white !important;
+    }
+    .label-count
+    {
+        background-color: #1178af !important;
+    }
+
+    .mytooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.mytooltip .mytooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.mytooltip .mytooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.mytooltip:hover .mytooltiptext {
+  visibility: visible;
+}
+    
+    
+</style>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<!-- For multi select -->
+<link rel="stylesheet" href="~/css/tail.select-default.min.css" />
+<script src="~/js/tail.select.min.js"></script>
+
+
+<div class="text-center">
+    <h4>Multi select with Search demo</h4>    
+</div>
+<br/><br/>
+<h6>Hard coded drop down</h6> 
+<select id="example" class="example" multiple>
+  <option value="mon">Monday</option>
+  <option value="tue">Tuesday</option>
+  <option value="wed">Wednesday</option>
+  <option value="thu">Thursday</option>
+  <option value="fri">Friday</option>
+  <option value="sat">Saturday</option>
+  <option value="sun">Sunday</option>
+</select>
+
+<br/>
+
+<button type="button" class="btn btn-info" onclick="Preselect()">Pre Select</button>
+
+<br/><br/>
+<h6>Dynamic Dependant drop downs</h6> 
+
+<form method="post">  
+    
+    <select id="countries" asp-items="@Model.CountryNames" placeholder="Select One Country" onchange="countrychanged()">      
+    </select>
+
+    <select id="cities" multiple placeholder="Select Cities">      
+    </select>
+
+</form>
+<br/><br/>
+
+<btn class="btn btn-info" title="This is a dummy button">Submit</btn>
+
+<br/><br/>
+
+<div class="mytooltip">Hover over me
+  <span class="mytooltiptext">Tooltip text</span>
+</div>
+
+
+<script>
+
+    // Documentation :  https://www.cssscript.com/single-multiple-select-tail/
+
+    var multiselectDays;  
+    var citiesDropDown;
+    var countryDropDown;
+    
+    $(document).ready(function () {
+
+            multiselectDays = tail.select("#example", {                
+                classNames: "dmmultiselect",
+                multiPinSelected: true,
+                multiSelectAll: true,
+                multiShowCount: true, 
+                multiLimit: 3,
+                multiShowLimit: true,  
+                search: true                
+            });
+
+            citiesDropDown = tail.select("#cities", {
+                        placeholder: "Select multiple items",
+                        classNames: "dmmultiselect",
+                        multiPinSelected: true,
+                        multiSelectAll: true,
+                        multiShowCount: true,                        
+                        search: true                
+                    });
+
+            countryDropDown = tail.select("#countries", {                
+                classNames: "dmmultiselect",
+                multiPinSelected: true,
+                multiSelectAll: true,
+                multiShowCount: true,                 
+                search: true                
+            });
+
+        });
+
+
+        function Preselect()
+        {           
+            
+            $("#example option").each(function(){
+                if ($(this).Text() == "Monday") $(this).attr("selected","selected");
+                if ($(this).val() == "tue") $(this).attr("selected","selected");
+            });
+
+            multiselectDays.reload();
+        }
+        
+
+        function countrychanged()
+        {
+            var selectedCountry = $('#countries').find(":selected").val();
+                                   
+            var postdata = { "CountryName": selectedCountry, "CountryValue": "dummy12" };
+
+            var citiesDropDown = tail.select("#cities", {
+                        placeholder: "Select multiple items",
+                        classNames: "dmmultiselect",
+                        multiPinSelected: true,
+                        multiSelectAll: true,
+                        multiShowCount: true,                        
+                        search: true                
+                    });
+
+            citiesDropDown.on('change', function(item, state){
+                var selectedValues = $('#cities').val().toString();
+                citiesDropDown.updateLabel(selectedValues);
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "/Index?handler=GetCityList",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",                        
+                data: JSON.stringify(postdata),
+                headers: {
+                    RequestVerificationToken:
+                        $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (result) {                    
+                                        
+                    // clear existing data from drop down.
+                    $("#cities").empty();
+
+                    // load data in second drop down.
+
+                    $.each(result, function() {
+                        $("#cities").append($("<option/>").val(this).text(this));
+                    }); 
+
+                    citiesDropDown.reload();
+                   
+                },
+                failure: function (result) {
+                    alert("failure");
+                },
+                error: function (result) {
+                    alert("error");
+                },
+                }).done(function (result) {
+                        //alert("ajax call complete.");
+            });
+
+
+        }
+
+    </script>

@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8600b009-5875-4bae-98d1-fc30864394fa": {
+      "ProjectGuid": "8600b009-5875-4bae-98d1-fc30864394fa",
+      "DisplayName": "CAD.Domain",
+      "ColorIndex": 0
+    },
+    "e9038d56-43c7-4b96-af33-9e6efe29ad32": {
+      "ProjectGuid": "e9038d56-43c7-4b96-af33-9e6efe29ad32",
+      "DisplayName": "CAD.Application",
+      "ColorIndex": 1
+    },
+    "f20a5152-0e80-4d49-831c-76cd5b916040": {
+      "ProjectGuid": "f20a5152-0e80-4d49-831c-76cd5b916040",
+      "DisplayName": "CAD.Infrastructure",
+      "ColorIndex": 2
+    },
+    "ee6367eb-9541-4e97-bf58-57d3dd28da6c": {
+      "ProjectGuid": "ee6367eb-9541-4e97-bf58-57d3dd28da6c",
+      "DisplayName": "CAD.PresentationAPI",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

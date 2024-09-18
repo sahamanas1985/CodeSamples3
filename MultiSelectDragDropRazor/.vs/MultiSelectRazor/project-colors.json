@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d0537efb-71db-40d5-9e0a-e7399367159d": {
+      "ProjectGuid": "d0537efb-71db-40d5-9e0a-e7399367159d",
+      "DisplayName": "MultiSelectRazor",
+      "ColorIndex": 0
+    },
+    "a7ffc891-73bf-4daf-90c3-bf2cc39e1da2": {
+      "ProjectGuid": "a7ffc891-73bf-4daf-90c3-bf2cc39e1da2",
+      "DisplayName": "Web.Core",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

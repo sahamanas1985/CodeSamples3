@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "333aa6d4-d10f-42b6-bb04-509913c88ad3": {
+      "ProjectGuid": "333aa6d4-d10f-42b6-bb04-509913c88ad3",
+      "DisplayName": "ADDEmailRoutingService",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

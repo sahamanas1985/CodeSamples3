@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ec480310-ef1f-44f5-a4dd-0b77b976b037": {
+      "ProjectGuid": "ec480310-ef1f-44f5-a4dd-0b77b976b037",
+      "DisplayName": "XunitDemo",
+      "ColorIndex": 0
+    },
+    "df1e31d9-eb04-44d3-9a2a-e9c4f1437b8e": {
+      "ProjectGuid": "df1e31d9-eb04-44d3-9a2a-e9c4f1437b8e",
+      "DisplayName": "xUnitDemo.Test",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

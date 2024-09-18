@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="text-center">
+    <h4>Captcha test</h4>    
+</div>
+
+<form id="my_captcha_form" method="post" style="width:450px" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <label class="form-label">User Id</label>
+        <input type="text" class="form-control" asp-for="@Model.username" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" asp-for="@Model.password" />
+    </div> 
+     
+    <div class="g-recaptcha" data-sitekey="@Model.CaptchaKey"></div>
+    <span id="captchaMsg" style="color: red;"></span>
+    <br/><br/>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>    
+</form>
+
+
+<script>
+
+    document.getElementById("my_captcha_form").addEventListener("submit",function(evt)
+    {  
+      $('#captchaMsg').text(""); 
+      var response = grecaptcha.getResponse();
+      if(response.length == 0) 
+      { 
+        //reCaptcha not verified
+        $('#captchaMsg').text("Captcha not verified!");
+        evt.preventDefault();
+        return false;
+      }
+
+      //else captcha verified
+      //continue to submit the form
+  
+    });
+
+</script> 
+
+

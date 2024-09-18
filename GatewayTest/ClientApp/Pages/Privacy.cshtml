@@ -1,0 +1,16 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Add new employee</p>
+
+<form method="post">
+
+    <input class="form-control" type="text" id="UserName" asp-for="emp.name" />
+    <input class="form-control" type="role" id="UserRole" asp-for="emp.role" />
+    <button class="btn btn-info">Save</button>
+
+</form>

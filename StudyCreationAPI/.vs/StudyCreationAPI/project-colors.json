@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fc2ec668-8d70-436b-85a3-c82cb4704b51": {
+      "ProjectGuid": "fc2ec668-8d70-436b-85a3-c82cb4704b51",
+      "DisplayName": "StudyCreationAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

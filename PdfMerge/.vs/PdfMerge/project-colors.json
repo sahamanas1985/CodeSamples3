@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b4c0feb3-8177-4b32-98ad-0aaa31c82bb5": {
+      "ProjectGuid": "b4c0feb3-8177-4b32-98ad-0aaa31c82bb5",
+      "DisplayName": "PdfMerge",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

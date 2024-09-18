@@ -1,0 +1,19 @@
+{
+  "AmgenProductFamily": [
+    {
+      "ProductFamilyName": "Family001",
+      "ProductName": "Product001",
+      "StudyNumber": "Study123",
+      "ActiveDatasheetName": "RSIName",
+      "ActivationDate": "LatestActiveDate"
+    },
+    {
+      "ProductFamilyName": "Family001",
+      "ProductName": "Product001",
+      "StudyNumber": "Study234",
+      "ActiveDatasheetName": "RSIName",
+      "ActivationDate": "LatestActiveDate"
+    }
+  ]
+
+}

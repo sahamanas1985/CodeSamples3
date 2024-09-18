@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e7e04e86-a141-411b-abde-26747a1694c0": {
+      "ProjectGuid": "e7e04e86-a141-411b-abde-26747a1694c0",
+      "DisplayName": "EditableTable",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

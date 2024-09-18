@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "35e4d4f1-cb5c-44ff-8187-2ad32ea3982c": {
+      "ProjectGuid": "35e4d4f1-cb5c-44ff-8187-2ad32ea3982c",
+      "DisplayName": "AsyncTest",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

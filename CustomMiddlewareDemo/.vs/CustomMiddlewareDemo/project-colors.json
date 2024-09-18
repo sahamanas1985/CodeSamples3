@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b048e557-73ce-404f-a944-dc3417573c2e": {
+      "ProjectGuid": "b048e557-73ce-404f-a944-dc3417573c2e",
+      "DisplayName": "CustomMiddlewareDemo",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

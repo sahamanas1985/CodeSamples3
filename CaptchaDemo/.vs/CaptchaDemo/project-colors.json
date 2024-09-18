@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d85ace4a-3b8c-4ea1-9198-f7bbd0f790c1": {
+      "ProjectGuid": "d85ace4a-3b8c-4ea1-9198-f7bbd0f790c1",
+      "DisplayName": "CaptchaDemo",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

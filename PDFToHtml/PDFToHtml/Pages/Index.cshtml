@@ -1,0 +1,10 @@
+﻿@page
+@using Microsoft.AspNetCore.Html
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div style="border: 2px solid blue">
+    @(new HtmlString(@Model.HtmlString))
+</div>

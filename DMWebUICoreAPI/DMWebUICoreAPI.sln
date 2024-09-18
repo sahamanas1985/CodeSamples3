@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMWebUICoreAPI", "DMWebUICoreAPI\DMWebUICoreAPI.csproj", "{6A54EB33-1B1B-465C-9D97-F9F9AE3CFCC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A54EB33-1B1B-465C-9D97-F9F9AE3CFCC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A54EB33-1B1B-465C-9D97-F9F9AE3CFCC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A54EB33-1B1B-465C-9D97-F9F9AE3CFCC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A54EB33-1B1B-465C-9D97-F9F9AE3CFCC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CC89F7F-C191-44C6-A542-F9B055E448E8}
+	EndGlobalSection
+EndGlobal
